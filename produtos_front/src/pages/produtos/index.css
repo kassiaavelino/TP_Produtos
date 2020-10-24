@@ -1,0 +1,41 @@
+.title{
+    justify-content: center;
+}
+.products-main{
+    margin: 20px;
+    padding: 10px;
+}
+.card{
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    margin: 20px 0;
+
+}
+.itens{
+    width: 100px;
+    height: 100px;  
+}
+.image{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+.card{
+    max-width: 300px;
+}
+.button-produtos{
+    width: 100px;
+    height: 40px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    background: transparent;
+    cursor: pointer;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight:600;
+    margin-left: 60% ;
+}
+.button-produtos a {
+    text-decoration: none;
+    color: #000;
+}
