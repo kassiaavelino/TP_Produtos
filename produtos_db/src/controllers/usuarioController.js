@@ -3,7 +3,6 @@ const Usuario = require('../models/usuario');
 const status = require('http-status');
 
 exports.Insert = (req, res, next) => {
-    const id = req.body.id;
     const nome = req.body.nome;
     const email = req.body.email;
     const senha = req.body.senha;
@@ -14,7 +13,6 @@ exports.Insert = (req, res, next) => {
     const telefone = req.body.telefone;
 
     Usuario.create({
-        id: id,
         nome: nome,
         email: email,
         senha: senha,

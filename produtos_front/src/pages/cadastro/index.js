@@ -16,7 +16,8 @@ class Cadastro extends Component {
             endereco: "",
             cidade:"",
             estado:"",
-            cep:""
+            cep:"",
+            telefone:""
         },
         erro: null,
         redirect: false
@@ -24,47 +25,87 @@ class Cadastro extends Component {
 }
 
 exibeErro() {
-    const { erro } = this.state;
+  const { erro } = this.state;
 
-    if (erro) {
-        return (
-            <div className="alert alert-danger" role="alert">
-                Erro de conexão com o servidor
-            </div>
-        );
-    }
+  if (erro) {
+      return (
+          <div className="alert alert-danger" role="alert">
+              Erro de conexão com o servidor
+          </div>
+      );
+  }
 }
 
- 
-    render() {
-      const { redirect } = this.state;
-      if (redirect) {
-        return <Redirect to="/produtos" />
-      }else {        
+    render() { 
+    const { redirect } = this.state;
+    if (redirect) {
+        return <Redirect to="/produtos" />;
+    } else {
+   
         return(
             <div className="register-page">
                 <h1>PAGE CADASTRO</h1>
                 
                 <form onSubmit={this.handleSubmit}>
-                  <div class="form-group">
+                  <fieldset>
+                  <div class="form-row">
+                  <div class="form-group col-md-8">
                     <label for="inputAddress2">Nome: </label>
                     <input type="text" 
-                           class="form-control" 
-                           id="inputAddress2"
+                           id="nome"
+                           class="form-control"
+                           name="nome"
+                           placeholder="Nome"
+                           minLength="3"
+                           maxLength="100"
+                           required
+                           value={this.state.usuario.nome}
+                           onChange={this.handleInputChange}
                     />
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputAddress2">Telefone: </label>
+                    <input type="text" 
+                           id="telefone"
+                           class="form-control"
+                           name="telefone"
+                           placeholder="Telefone"
+                           minLength="3"
+                           maxLength="100"
+                           required
+                           value={this.state.usuario.telefone}
+                           onChange={this.handleInputChange}
+                    />
+                  </div>
                   </div>
                   <div class="form-row">
                     <div class="form-group col-md-6">
                       <label for="inputEmail4">Email: </label>
                       <input type="email" 
                              class="form-control" 
-                             id="inputEmail4"/>
+                             id="inputEmail4"
+                             name="email"
+                             placeholder="Email"
+                             minLength="3"
+                             maxLength="100"
+                             required
+                             value={this.state.usuario.email}
+                             onChange={this.handleInputChange}
+                        />
                     </div>
                     <div class="form-group col-md-6">
                       <label for="inputPassword4">Senha: </label>
                       <input type="password" 
                              class="form-control" 
-                             id="inputPassword4"/>
+                             id="inputPassword4"
+                             name="senha"
+                             placeholder="Senha"
+                             minLength="3"
+                             maxLength="100"
+                             required
+                             value={this.state.usuario.senha}
+                             onChange={this.handleInputChange}
+                             />
                     </div>
                   </div>
                   <div class="form-group">
@@ -72,18 +113,41 @@ exibeErro() {
                     <input type="text" 
                            class="form-control" 
                            id="inputAddress" 
-                           placeholder="Ex.: Rua Nova Esperança 398"/>
+                           placeholder="Ex.: Rua Nova Esperança 398"
+                           name="endereco"
+                           minLength="3"
+                           maxLength="100"
+                           required
+                           value={this.state.usuario.endereco}
+                           onChange={this.handleInputChange}
+                           />
                   </div>
                   <div class="form-row">
                     <div class="form-group col-md-6">
                       <label for="inputCity">Cidade: </label>
                       <input type="text" 
                              class="form-control" 
-                             id="inputCity"/>
+                             id="inputCity"
+                             name="cidade"
+                             placeholder="Cidade"
+                             minLength="3"
+                             maxLength="100"
+                             required
+                             value={this.state.usuario.cidade}
+                             onChange={this.handleInputChange}
+                             />
                     </div>
                     <div class="form-group col-md-4">
                       <label for="inputState">Estado: </label>
-                      <select id="inputState" class="form-control">
+                      <select id="inputState" class="form-control"
+                      name="estado"
+                      placeholder="Estado"
+                      minLength="3"
+                      maxLength="100"
+                      required
+                      value={this.state.usuario.estado}
+                      onChange={this.handleInputChange}
+                      >
                         <option selected>Choose...</option>
                         <option>AM</option>
                         <option>BA</option>
@@ -99,10 +163,22 @@ exibeErro() {
                       <label for="inputZip">CEP :</label>
                       <input type="text" 
                              class="form-control" 
-                             id="inputZip"/>
+                             id="inputZip"
+                             name="cep"
+                             placeholder="Cep"
+                             minLength="3"
+                             maxLength="100"
+                             required
+                             value={this.state.usuario.cep}
+                             onChange={this.handleInputChange}
+                             />
+
                     </div>
                   </div>
-                  <button type="submit" class="button"><Link to='/login'>Login</Link></button>
+                  <button type="submit" className="btn btn-primary">
+                            Cadastrar
+                    </button>
+                  </fieldset>
                 </form>
                 
             </div>
@@ -121,29 +197,40 @@ exibeErro() {
       console.log(value);
   };
 
-  handleSubmit = event => {
-      fetch("http://localhost:3003/sistema/usuarios", {
-          method: "post",
-          body: JSON.stringify(this.state.usuario),
-          headers: {
-              "Content-Type": "application/json"
-          }
-      })
-          .then(data => {
-              if (data.ok) {
-                  this.setState({ redirect: true });
-              } else {
-                  data.json().then(data => {
-                      if (data.error) {
-                          this.setState({ erro: data.error });
-                      }
-                  });
-              }
-          })
-          .catch(erro => this.setState({ erro: erro }));
+  handleInputChange = event => {
+    const target = event.target;
+    const name = target.name;
+    const value = target.value;
 
-      event.preventDefault();
-  };
+    this.setState(prevState => ({
+        usuario: { ...prevState.usuario, [name]: value }
+    }));
+    console.log(value);
+};
+
+handleSubmit = event => {
+    fetch("http://127.0.0.1:3003/sistema/usuarios", {
+        method: "post",
+        body: JSON.stringify(this.state.usuario),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+        .then(data => {
+            if (data.ok) {
+                this.setState({ redirect: true });
+            } else {
+                data.json().then(data => {
+                    if (data.error) {
+                        this.setState({ erro: data.error });
+                    }
+                });
+            }
+        })
+        .catch(erro => this.setState({ erro: erro }));
+
+    event.preventDefault();
+};
 
 }
 
