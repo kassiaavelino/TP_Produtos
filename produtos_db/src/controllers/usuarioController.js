@@ -5,15 +5,23 @@ const status = require('http-status');
 exports.Insert = (req, res, next) => {
     const id = req.body.id;
     const nome = req.body.nome;
-    const endereco = req.body.endereco;
     const email = req.body.email;
+    const senha = req.body.senha;
+    const endereco = req.body.endereco;
+    const cidade = req.body.cidade;
+    const estado = req.body.estado;
+    const cep = req.body.cep;    
     const telefone = req.body.telefone;
 
     Usuario.create({
         id: id,
         nome: nome,
-        endereco: endereco,
         email: email,
+        senha: senha,
+        endereco: endereco,
+        cidade: cidade,
+        estado: estado,
+        cep: cep, 
         telefone: telefone
     })
 

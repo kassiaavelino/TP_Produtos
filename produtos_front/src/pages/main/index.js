@@ -12,7 +12,7 @@ export default class Main extends Component {
                 <div className="navbar">
                     <h1><img className="logo" src={Logo}/></h1>
                     <button className="button">
-                        <Link to='/produtos'>LOGIN</Link>
+                        <Link to='/login'>LOGIN</Link>
                     </button>
                 </div>
                 <div className="content">

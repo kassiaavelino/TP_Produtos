@@ -8,7 +8,10 @@ export default class Login extends Component {
         
         return(
             <div className="login-page">
-                <h1></h1>
+                <h1>PAGE LOGIN</h1>
+                <button className="button">
+                    <Link to='/cadastro'>Cadastro</Link>
+                </button>
                 
             </div>
         )

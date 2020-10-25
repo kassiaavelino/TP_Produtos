@@ -1,0 +1,11 @@
+.register-page{
+    background: aqua;
+    height: 85vh;
+    margin: 35px 50px;
+    padding: 20px;
+    text-align: center;
+    justify-content: space-around;
+    line-height: 40px;
+    font-weight: bold;
+    font-size: 20px;
+}

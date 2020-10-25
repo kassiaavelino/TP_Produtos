@@ -18,14 +18,33 @@ const Usuario = sequelize.define("usuario", {
             len: [3, 100]
         }
     },
-    endereco:{
-        allowNull: false,
-        type: Sequelize.STRING(200)
-    },
     email:{
         allowNull: false,
         type: Sequelize.STRING(100)
     },
+    senha:{
+        allowNull: false,
+        type: Sequelize.STRING(15),
+        validate: {
+            len: [6, 15]
+        }
+    },
+    endereco:{
+        allowNull: false,
+        type: Sequelize.STRING(200)
+    },
+    cidade:{
+        allowNull: false,
+        type: Sequelize.STRING(200)
+    },
+    estado:{
+        allowNull: false,
+        type: Sequelize.STRING(200)
+    },
+    cep:{
+        allowNull: false,
+        type: Sequelize.STRING(200)
+    },    
     telefone:{
         allowNull: false,
         type: Sequelize.INTEGER
