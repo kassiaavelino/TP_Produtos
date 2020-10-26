@@ -10,7 +10,7 @@ export default class Main extends Component {
         return(
             <div id="all">
                 <div className="navbar">
-                    <h1><img className="logo" src={Logo}/></h1>
+                    <h1><img className="logo" alt="logo" src={Logo}/></h1>
                     <button className="button">
                         <Link to='/login'>LOGIN</Link>
                     </button>

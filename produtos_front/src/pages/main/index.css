@@ -4,16 +4,16 @@
     font-family: "Courier New", Courier, monospace;
 }
 #all{
-    width: 97%;
-    height: 97vh;
+    width: 100%;
+    height: 100vh;
     /* background-image: url(../../images/bg2.jpg); */
-    background: linear-gradient(-45deg,
+    /* background: linear-gradient(-45deg,
     #845ec2,
     #d65db1,
     #ff6f91,
     #ff9671,
     #ffc75f,
-    #f9f871);
+    #f9f871); */
     padding: 10px 20px;
 }
 .navbar{
@@ -27,6 +27,7 @@
     width: 50px;
     height: 50px;
 }
+
 .button, .button-link{
     width: 100px;
     height: 40px;
@@ -41,14 +42,15 @@
     text-decoration: none;
     color: #000;
 }
-.button:hover, .button-link:hover{
-    font-size: large;
-}
 .button-link{
     margin-top: 40px;
     width: 150px;
     height: 50px;
     font-size: 18px;
+}
+button a:hover{
+    color: rgb(36, 35, 35);
+    text-decoration: none;
 }
 .content{
     position: absolute;

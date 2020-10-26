@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -44,9 +43,9 @@ exibeErro() {
    
         return(
             <div className="register-page">
-                <h1>PAGE CADASTRO</h1>
                 
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleSubmit} class="form">
+                  <h1>PAGE CADASTRO</h1>
                   <fieldset>
                   <div class="form-row">
                   <div class="form-group col-md-8">
@@ -175,7 +174,7 @@ exibeErro() {
 
                     </div>
                   </div>
-                  <button type="submit" className="btn btn-primary">
+                  <button type="submit" className="button-link">
                             Cadastrar
                     </button>
                   </fieldset>

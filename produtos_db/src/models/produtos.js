@@ -19,6 +19,13 @@ const Produtos = sequelize.define("produtos", {
             len: [3, 100]
         }
     },
+    p_descricao: {
+        allowNull: false,
+        type: Sequelize.STRING(500),
+        validate: {
+            len: [10, 500]
+        }
+    },
     p_precocusto: {
         allowNull: false,
         type: Sequelize.DOUBLE

@@ -11,7 +11,7 @@ export default class Produtos extends Component {
             <div className="products-main">
                 <h1 className="title">Tela Produtos</h1>
                 <div class="card">
-                    <p className="image"><img className="itens" src={Item1} /></p>
+                    <p className="image"><img className="itens" alt="img" src={Item1} /></p>
                     <div class="card-body">
                         <h5 class="card-title">Card title</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
