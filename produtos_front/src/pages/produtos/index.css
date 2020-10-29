@@ -2,9 +2,20 @@
     justify-content: center;
 }
 .products-main{
+    height: 88.6vh;
+    text-align: center;
+    justify-content: space-around;
+}
+.article{
     padding: 30px;
+    display: inline-flex;
+}
+.usuario-list{
+    height: 100px;
 }
 .card{
+    width: 300px;
+    height: 300px;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 20px;
@@ -22,6 +33,10 @@
 }
 .card{
     max-width: 300px;
+}
+button a:click{
+    text-decoration: none;
+    border: none;
 }
 .button-produtos{
     width: 100px;

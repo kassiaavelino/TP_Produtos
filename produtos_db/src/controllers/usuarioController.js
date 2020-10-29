@@ -1,5 +1,4 @@
 const Usuario = require('../models/usuario');
-
 const status = require('http-status');
 
 exports.Insert = (req, res, next) => {
@@ -32,4 +31,29 @@ exports.Insert = (req, res, next) => {
     })
 
     .catch(error => next(error));
+};
+
+exports.SelectAll = (req, res, next) => {
+    Usuario.findAll()
+        .then(usuario => {
+            if (usuario) {
+                res.status(status.OK).send(usuario);
+            }
+        })
+        .catch(error => next(error));
+}
+
+exports.SelectDetail = (req, res, next) => {
+    const id = req.params.id;
+
+    Usuario.findByPk(id)
+        .then(usuario => {
+            if (usuario) {
+                res.status(status.OK).send(usuario);
+            } else {
+                res.status(status.NOT_FOUND).send();
+            }
+        })
+        .catch(error => next(error));
+    
 };

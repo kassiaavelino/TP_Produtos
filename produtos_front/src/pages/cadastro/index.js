@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -174,7 +175,10 @@ exibeErro() {
 
                     </div>
                   </div>
-                  <button type="submit" className="button-link">
+                    <button className="button-link">
+                      <Link to='/login'>Voltar</Link>
+                    </button>
+                    <button type="submit" className="button-link">
                             Cadastrar
                     </button>
                   </fieldset>

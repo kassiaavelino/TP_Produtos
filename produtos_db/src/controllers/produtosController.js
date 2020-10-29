@@ -1,5 +1,4 @@
 const Produtos = require('../models/produtos');
-
 const status = require('http-status');
 
 exports.Insert = (req, res, next) => {
@@ -19,13 +18,37 @@ exports.Insert = (req, res, next) => {
         qtd_estoque: qtd_estoque        
     })
 
-    .then (produtos=>{
-        if (produtos){
+    .then (produtos => {
+        if (produtos) {
             res.status(status.OK).send(produtos);
-        }else {
+        } else {
             res.status(status.NOT_FOUND).send();
         }
     })
 
     .catch(error => next(error));
+};
+exports.SelectAll = (req, res, next) => {
+    Produtos.findAll()
+        .then(produtos => {
+            if (produtos) {
+                res.status(status.OK).send(produtos);
+            }
+        })
+        .catch(error => next(error));
+}
+
+exports.SelectDetail = (req, res, next) => {
+    const p_id = req.params.p_id;
+
+    Produtos.findByPk(id)
+        .then(produtos => {
+            if (produtos) {
+                res.status(status.OK).send(produtos);
+            } else {
+                res.status(status.NOT_FOUND).send();
+            }
+        })
+        .catch(error => next(error));
+    
 };

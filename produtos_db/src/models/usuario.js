@@ -47,7 +47,10 @@ const Usuario = sequelize.define("usuario", {
     },    
     telefone:{
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.DOUBLE(),
+        validate: {
+            len: [1, 999999]
+        }
     }
 });
  
