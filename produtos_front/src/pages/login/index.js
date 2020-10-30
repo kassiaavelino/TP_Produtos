@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import './index.css';
+import Logo from '../../images/logo.png';
 
 export default class Login extends Component {
  
@@ -8,6 +9,12 @@ export default class Login extends Component {
         
         return(
             <div className="login-page">
+                <div className="navbar">
+                    <h1><Link to="/"><img className="logo" alt="logo" src={Logo}/></Link></h1>
+                    <button className="button">
+                        <Link to='/login'>LOGIN</Link>
+                    </button>
+                </div>
                 <h1>PAGE LOGIN</h1>
                 <div className="form-login">
                 <form>

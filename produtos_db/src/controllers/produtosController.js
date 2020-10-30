@@ -39,7 +39,7 @@ exports.SelectAll = (req, res, next) => {
 }
 
 exports.SelectDetail = (req, res, next) => {
-    const p_id = req.params.p_id;
+    const id = req.params.id;
 
     Produtos.findByPk(id)
         .then(produtos => {
@@ -50,5 +50,4 @@ exports.SelectDetail = (req, res, next) => {
             }
         })
         .catch(error => next(error));
-    
 };

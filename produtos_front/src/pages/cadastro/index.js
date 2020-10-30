@@ -3,6 +3,7 @@ import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Logo from '../../images/logo.png';
 
 class Cadastro extends Component {
   constructor(props) {
@@ -44,6 +45,12 @@ exibeErro() {
    
         return(
             <div className="register-page">
+              <div className="navbar">
+                    <h1><Link to="/"><img className="logo" alt="logo" src={Logo}/></Link></h1>
+                    <button className="button">
+                        <Link to='/login'>LOGIN</Link>
+                    </button>
+                </div>
                 
                 <form onSubmit={this.handleSubmit} class="form">
                   <h1>PAGE CADASTRO</h1>
